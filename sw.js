@@ -24,6 +24,8 @@ var precacheUrls = [];
 
   precacheUrls.push('/');
 
+  precacheUrls.push('/posts/17428/');
+
   precacheUrls.push('/posts/11546/');
 
   precacheUrls.push('/posts/16284/');
@@ -59,7 +61,7 @@ var precacheUrls = [];
   precacheUrls.push('/posts/39718/');
 
 toolbox.precache(precacheUrls);
-toolbox.options = {"networkTimeoutSeconds":15};
+toolbox.options = {"networkTimeoutSeconds":5};
 
 
 toolbox.router.any(/(baidu.com|google.com|i-meto.com)/, toolbox.networkOnly);

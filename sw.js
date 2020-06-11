@@ -20,59 +20,20 @@ self.addEventListener('active', function () {
   return self.clients.claim();
 });
 
-var precacheUrls = [];
-
-  precacheUrls.push('/');
-
-  precacheUrls.push('/posts/17428/');
-
-  precacheUrls.push('/posts/11546/');
-
-  precacheUrls.push('/posts/16284/');
-
-  precacheUrls.push('/posts/9851/');
-
-  precacheUrls.push('/posts/65153/');
-
-  precacheUrls.push('/posts/60704/');
-
-  precacheUrls.push('/posts/25452/');
-
-  precacheUrls.push('/posts/57381/');
-
-  precacheUrls.push('/posts/2095/');
-
-  precacheUrls.push('/posts/34850/');
-
-  precacheUrls.push('/posts/60347/');
-
-  precacheUrls.push('/posts/50231/');
-
-  precacheUrls.push('/posts/9004/');
-
-  precacheUrls.push('/posts/17220/');
-
-  precacheUrls.push('/posts/37841/');
-
-  precacheUrls.push('/posts/17586/');
-
-  precacheUrls.push('/posts/2199/');
-
-  precacheUrls.push('/posts/39718/');
-
+var precacheUrls = [
+'/','/posts/17428/','/posts/11546/','/posts/16284/','/posts/9851/','/posts/65153/','/posts/60704/','/posts/25452/','/posts/57381/','/posts/2095/','/posts/34850/','/posts/60347/','/posts/50231/','/posts/9004/','/posts/17220/','/posts/37841/','/posts/17586/','/posts/2199/','/posts/39718/','/404.html','/categories/index.html','/about/index.html','/gallery/index.html','/letter/index.html','/records/content.json','/records/index.html','/library/index.html','/tags/index.html','/resume/index.html',
+];
 toolbox.precache(precacheUrls);
-toolbox.options = {"networkTimeoutSeconds":15};
+toolbox.options = {"networkTimeoutSeconds":5};
 
 
-toolbox.router.any(/(baidu.com|google.com|i-meto.com)/, toolbox.networkOnly);
+toolbox.router.any(/(hm.baidu.com|google.com|api.i-meto.com|github)/, toolbox.networkOnly);
 
-toolbox.router.any(/manifest.json(\?.*)?$/, toolbox.networkFirst);
-
-toolbox.router.any(/.*\/asset\/lang\/.+\.(json)(\?.*)?$/, toolbox.networkFirst);
+toolbox.router.any(/(icon-lib|font-mustom|MPlayer)/, toolbox.networkOnly);
 
 toolbox.router.any(/.*\/asset\/part\/.+\.(html)(\?.*)?$/, toolbox.cacheFirst);
 
-toolbox.router.any(/.+\.(js|css|jpg|jpeg|png|gif|svg|webp|ico|eot|ttf|woff|woff2|otf|mtn|moc|json)(\?.*)?$/, toolbox.cacheFirst);
+toolbox.router.any(/.+\.(jpg|jpeg|png|gif|svg|webp|ico|eot|ttf|woff|woff2|otf|mtn|moc)(\?.*)?$/, toolbox.cacheFirst);
 
 toolbox.router.any(/\//, toolbox.networkFirst);
 
